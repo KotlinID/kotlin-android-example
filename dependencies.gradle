@@ -1,0 +1,41 @@
+ext {
+    language = [
+            kotlin: "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}"
+    ]
+
+    supportDependencies = [
+            support     : "com.android.support:support-v4:${supportLibraryVersion}",
+            appcompat   : "com.android.support:appcompat-v7:${supportLibraryVersion}",
+            design      : "com.android.support:design:${supportLibraryVersion}",
+            cardview    : "com.android.support:cardview-v7:${supportLibraryVersion}",
+            recyclerview: "com.android.support:recyclerview-v7:${supportLibraryVersion}",
+            multidex    : "com.android.support:multidex:${multidexLibraryVersion}"
+    ]
+
+    ankoDependencies = [
+            anko        : "org.jetbrains.anko:anko-sdk23:${ankoLibraryVersion}",
+            support     : "org.jetbrains.anko:anko-support-v4:${ankoLibraryVersion}",
+            appcompat   : "org.jetbrains.anko:anko-appcompat-v7:${ankoLibraryVersion}",
+            design      : "org.jetbrains.anko:anko-design:${ankoLibraryVersion}",
+            cardview    : "org.jetbrains.anko:anko-cardview-v7:${ankoLibraryVersion}",
+            recyclerview: "org.jetbrains.anko:anko-recyclerview-v7:${ankoLibraryVersion}"
+    ]
+
+    libraries = [
+            dagger          : "com.google.dagger:dagger:${daggerLibraryVersion}",
+            daggerCompiler  : "com.google.dagger:dagger-compiler:${daggerLibraryVersion}",
+            rxAndroid       : "io.reactivex.rxjava2:rxandroid:${rxAndroidLibraryVersion}",
+            rxJava          : "io.reactivex.rxjava2:rxjava:${rxJavaLibraryVersion}",
+            retrofit        : "com.squareup.retrofit2:retrofit:${retrofitLibraryVersion}",
+            retrofitRx      : "com.squareup.retrofit2:adapter-rxjava2:${retrofitLibraryVersion}",
+            retrofitJackson : "com.squareup.retrofit2:converter-jackson:${retrofitLibraryVersion}",
+            okhttp          : "com.squareup.okhttp3:okhttp:${okHttpLibraryVersion}",
+            okhttpLogging   : "com.squareup.okhttp3:logging-interceptor:${okHttpLibraryVersion}",
+            parceler        : "org.parceler:parceler-api:${parcelerLibraryVersion}",
+            parcelerCompiler: "org.parceler:parceler:${parcelerLibraryVersion}",
+            glide           : "com.github.bumptech.glide:glide:${glideLibraryVersion}",
+            jodatime        : "joda-time:joda-time:${jodaTimeLibraryVersion}",
+            circleimageview : "de.hdodenhof:circleimageview:${circleImageViewLibraryVersion}",
+            zeloryCompressor: "id.zelory:compressor:${zeloryCompressorLibraryVersion}"
+    ]
+}

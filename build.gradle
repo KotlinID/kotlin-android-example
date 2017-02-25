@@ -1,0 +1,40 @@
+apply from: 'dependencies.gradle'
+
+buildscript {
+    ext {
+        pluginVersion = project.properties["pluginVersion"]
+        kotlinVersion = project.properties["kotlinVersion"]
+        realmVersion = project.properties["realmVersion"]
+    }
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:${pluginVersion}"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}"
+        classpath "org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}"
+        classpath "io.realm:realm-gradle-plugin:${realmVersion}"
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+    project.ext {
+        compileSdkVersion = Integer.parseInt(project.properties["compileSdkVersion"])
+        buildToolsVersion = project.properties["buildToolsVersion"]
+        minSdkVersion = Integer.parseInt(project.properties["minSdkVersion"])
+        targetSdkVersion = Integer.parseInt(project.properties["targetSdkVersion"])
+        versionCode = Integer.parseInt(project.properties["versionCode"])
+        versionName = project.properties["versionName"]
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = project.properties["gradleVersion"]
+}
