@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="cl_main" type="id" />
+    <item name="abl_main" type="id" />
+    <item name="toolbar_main" type="id" />
+    <item name="pb_main" type="id" />
+    <item name="rv_main" type="id" />
+    <item name="iv_main_photo" type="id" />
+    <item name="tv_main_name" type="id" />
+</resources>

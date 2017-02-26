@@ -1,11 +1,12 @@
 package com.gojek.sample.kotlin.internal.injectors.module
 
 import com.gojek.sample.kotlin.extensions.baseUrl
-import com.gojek.sample.kotlin.extensions.getInterceptor
 import com.gojek.sample.kotlin.internal.data.remote.Api
 import dagger.Module
 import dagger.Provides
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -38,5 +39,14 @@ class NetworkModule {
                                      .addInterceptor(getInterceptor())
                                      .addInterceptor(httpLoggingInterceptor)
                                      .build()
+    }
+
+    private fun getInterceptor(): Interceptor {
+        return Interceptor { chain ->
+            val request: Request = chain.request()
+            val builder: Request.Builder = request.newBuilder().addHeader("Content-Type", "application/json")
+
+            chain.proceed(builder.build())
+        }
     }
 }
