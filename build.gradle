@@ -1,11 +1,6 @@
 apply from: 'dependencies.gradle'
 
 buildscript {
-    ext {
-        pluginVersion = project.properties["pluginVersion"]
-        kotlinVersion = project.properties["kotlinVersion"]
-        realmVersion = project.properties["realmVersion"]
-    }
     repositories {
         jcenter()
     }
@@ -22,12 +17,13 @@ allprojects {
         jcenter()
     }
     project.ext {
-        compileSdkVersion = Integer.parseInt(project.properties["compileSdkVersion"])
-        buildToolsVersion = project.properties["buildToolsVersion"]
-        minSdkVersion = Integer.parseInt(project.properties["minSdkVersion"])
-        targetSdkVersion = Integer.parseInt(project.properties["targetSdkVersion"])
-        versionCode = Integer.parseInt(project.properties["versionCode"])
-        versionName = project.properties["versionName"]
+        compileSdkVersion = compileSdkVersion.toInteger()
+        buildToolsVersion = buildToolsVersion.toString()
+        minSdkVersion = minSdkVersion.toInteger()
+        targetSdkVersion = targetSdkVersion.toInteger()
+        versionCode = versionCode.toInteger()
+        versionName = versionName.toString()
+        endpoint = enableDevelopment.toBoolean() ? endpointDevelopment : endpointStaging
     }
 }
 
@@ -36,5 +32,5 @@ task clean(type: Delete) {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = project.properties["gradleVersion"]
+    gradleVersion = gradleVersion.toString()
 }

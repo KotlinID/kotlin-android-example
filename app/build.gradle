@@ -16,12 +16,16 @@ android {
         versionCode project.ext.versionCode
         versionName project.ext.versionName
         multiDexEnabled true
+        buildConfigField 'String', 'ENDPOINT', project.ext.endpoint
     }
     buildTypes {
         debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    dataBinding {
+        enabled true
     }
     lintOptions {
         abortOnError false
