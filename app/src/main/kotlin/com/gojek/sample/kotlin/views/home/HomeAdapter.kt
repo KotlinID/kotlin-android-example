@@ -10,20 +10,20 @@ import org.jetbrains.anko.find
 
 class HomeAdapter constructor(val contacts: List<String>) : RecyclerView.Adapter<HomeAdapter.HomeHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): HomeHolder? = HomeHolder(HomeItemUI().createView(AnkoContext.create(parent!!.context, parent)))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeHolder = HomeHolder(HomeItemUI().createView(AnkoContext.create(parent.context, parent, false)))
 
     override fun onBindViewHolder(holder: HomeHolder?, position: Int) {
         val name = contacts[position]
-        holder?.bindView(name)
+        holder?.bind(name)
     }
 
     override fun getItemCount(): Int = contacts.size
 
     class HomeHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
 
-        fun bindView(contact: String) {
+        fun bind(contact: String) {
             with(contact) {
-                val textView = itemView.find<TextView>(R.id.tv_main_name)
+                val textView = itemView.find<TextView>(R.id.tv_homeitem_name)
                 textView.text = contact
             }
         }

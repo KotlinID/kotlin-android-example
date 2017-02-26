@@ -1,9 +1,11 @@
 package com.gojek.sample.kotlin.views.home
 
 import android.support.v4.content.ContextCompat
+import android.support.v7.content.res.AppCompatResources
 import android.util.TypedValue
 import android.view.ViewGroup
 import com.gojek.sample.kotlin.R
+import de.hdodenhof.circleimageview.CircleImageView
 import org.jetbrains.anko.*
 import org.jetbrains.anko.cardview.v7.cardView
 
@@ -14,28 +16,25 @@ class HomeItemUI : AnkoComponent<ViewGroup> {
 
         frameLayout {
             cardView {
+                cardBackgroundColor = AppCompatResources.getColorStateList(ctx, R.color.colorPrimary)
+                radius = dip(4).toFloat()
                 cardElevation = dip(2).toFloat()
+                preventCornerOverlap = false
 
                 relativeLayout {
                     ctx.theme.resolveAttribute(android.R.attr.selectableItemBackground, typedValue, true)
                     backgroundResource = typedValue.resourceId
 
-                    imageView {
-                        id = R.id.iv_main_photo
-                        setImageResource(R.mipmap.ic_launcher)
-                    }.lparams {
+                    include<CircleImageView>(R.layout.widget_circleimageview).lparams {
                         alignParentStart()
-                        width = dip(64)
-                        height = dip(64)
-                        padding = dip(8)
                     }
 
                     textView {
-                        id = R.id.tv_main_name
+                        id = R.id.tv_homeitem_name
                         textColor = ContextCompat.getColor(ctx, R.color.colorPrimaryDark)
                         textSize = 14f
                     }.lparams {
-                        rightOf(R.id.iv_main_photo)
+                        rightOf(R.id.civ_content)
                         centerInParent()
                         width = matchParent
                         height = wrapContent
