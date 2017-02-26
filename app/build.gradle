@@ -82,4 +82,7 @@ dependencies {
     compile libraries.jodatime
     compile libraries.circleimageview
     compile libraries.zeloryCompressor
+
+    testCompile testDependencies.junit
+    testCompile testDependencies.mockito
 }

@@ -38,4 +38,9 @@ ext {
             circleimageview : "de.hdodenhof:circleimageview:${circleImageViewLibraryVersion}",
             zeloryCompressor: "id.zelory:compressor:${zeloryCompressorLibraryVersion}"
     ]
+
+    testDependencies = [
+            junit  : "junit:junit:${jUnitLibraryVersion}",
+            mockito: "org.mockito:mockito-core:${mockitoLibraryVersion}"
+    ]
 }
