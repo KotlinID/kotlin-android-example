@@ -1,9 +1,7 @@
 package com.gojek.sample.kotlin.views.base
 
-interface View {
-    fun inject()
-
-    fun onAttach()
+interface Presenter<in T : View> {
+    fun onAttach(view: T)
 
     fun onDetach()
 }

@@ -12,6 +12,7 @@ import com.gojek.sample.kotlin.internal.injectors.module.ActivityModule
 import com.gojek.sample.kotlin.views.base.BaseActivity
 import org.jetbrains.anko.find
 import org.jetbrains.anko.setContentView
+import javax.inject.Inject
 
 class HomeActivity : BaseActivity(), HomeView {
 
@@ -19,11 +20,14 @@ class HomeActivity : BaseActivity(), HomeView {
         lateinit var component: ActivityComponent
     }
 
+    @Inject
+    lateinit var presenter: HomePresenter
+
     override fun initComponents(savedInstanceState: Bundle?) {
         HomeUI().setContentView(this)
         inject()
-        setToolbar()
-        setAdapter()
+        onAttach()
+        onLoadContacts()
     }
 
     override fun inject() {
@@ -31,6 +35,20 @@ class HomeActivity : BaseActivity(), HomeView {
                                                      .activityModule(ActivityModule(this))
                                                      .build()
         component.inject(this)
+    }
+
+    override fun onAttach() {
+        presenter.onAttach(this)
+        setToolbar()
+    }
+
+    override fun onDetach() {
+        presenter.onDetach()
+    }
+
+    override fun onLoadContacts() {
+        presenter.loadContacts()
+        setAdapter()
     }
 
     private fun setToolbar() {
