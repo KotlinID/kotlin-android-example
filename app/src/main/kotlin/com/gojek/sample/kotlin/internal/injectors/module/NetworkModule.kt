@@ -1,6 +1,7 @@
 package com.gojek.sample.kotlin.internal.injectors.module
 
 import com.gojek.sample.kotlin.extensions.baseUrl
+import com.gojek.sample.kotlin.extensions.membersOf
 import com.gojek.sample.kotlin.internal.data.remote.Api
 import dagger.Module
 import dagger.Provides
@@ -25,7 +26,7 @@ class NetworkModule {
                                                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                                                    .addConverterFactory(JacksonConverterFactory.create())
                                                    .build()
-        return retrofit.create(Api::class.java)
+        return retrofit.create(membersOf<Api>())
     }
 
     private fun getOkHttpClient(): OkHttpClient {

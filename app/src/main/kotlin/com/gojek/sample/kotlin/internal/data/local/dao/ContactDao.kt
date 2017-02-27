@@ -1,5 +1,6 @@
 package com.gojek.sample.kotlin.internal.data.local.dao
 
+import com.gojek.sample.kotlin.extensions.membersOf
 import com.gojek.sample.kotlin.internal.data.local.realm.ContactRealm
 import io.realm.Realm
 import io.realm.RealmResults
@@ -14,7 +15,7 @@ class ContactDao : Dao<ContactRealm> {
 
     override fun findAll(): List<ContactRealm> {
         val realm: Realm = Realm.getDefaultInstance()
-        val data: RealmResults<ContactRealm> = realm.where(ContactRealm::class.java).findAll()
+        val data: RealmResults<ContactRealm> = realm.where(membersOf<ContactRealm>()).findAll()
         realm.close()
 
         return data
@@ -23,7 +24,7 @@ class ContactDao : Dao<ContactRealm> {
     override fun findOne(): ContactRealm {
         try {
             val realm: Realm = Realm.getDefaultInstance()
-            val data: ContactRealm = realm.copyFromRealm(realm.where(ContactRealm::class.java).findFirst())
+            val data: ContactRealm = realm.copyFromRealm(realm.where(membersOf<ContactRealm>()).findFirst())
             realm.close()
 
             return data
@@ -35,6 +36,6 @@ class ContactDao : Dao<ContactRealm> {
 
     override fun delete() {
         val realm: Realm = Realm.getDefaultInstance()
-        realm.executeTransactionAsync({ realm -> realm.delete(ContactRealm::class.java) }, { realm.close() }) { realm.close() }
+        realm.executeTransactionAsync({ realm -> realm.delete(membersOf<ContactRealm>()) }, { realm.close() }) { realm.close() }
     }
 }
