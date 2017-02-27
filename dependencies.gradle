@@ -40,7 +40,11 @@ ext {
     ]
 
     testDependencies = [
-            junit  : "junit:junit:${jUnitLibraryVersion}",
-            mockito: "org.mockito:mockito-core:${mockitoLibraryVersion}"
+            supportAnnotations: "com.android.support:support-annotations:${supportLibraryVersion}",
+            junit             : "junit:junit:${jUnitLibraryVersion}",
+            mockito           : "org.mockito:mockito-core:${mockitoLibraryVersion}",
+            runner            : "com.android.support.test:runner:${supportTestLibraryVersion}",
+            rules             : "com.android.support.test:rules:${supportTestLibraryVersion}",
+            espresso          : "com.android.support.test.espresso:espresso-core:${espressoLibraryVersion}"
     ]
 }

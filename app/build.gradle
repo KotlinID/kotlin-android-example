@@ -15,6 +15,7 @@ android {
         versionCode project.ext.versionCode
         versionName project.ext.versionName
         multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         buildConfigField 'String', 'ENDPOINT', project.ext.endpoint
     }
     buildTypes {
@@ -81,4 +82,11 @@ dependencies {
 
     testCompile testDependencies.junit
     testCompile testDependencies.mockito
+
+    androidTestCompile testDependencies.supportAnnotations
+    androidTestCompile testDependencies.runner
+    androidTestCompile testDependencies.rules
+    androidTestCompile(testDependencies.espresso) {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
 }
