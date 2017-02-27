@@ -1,6 +1,5 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: "kotlin-allopen"
 apply plugin: 'realm-android'
@@ -23,9 +22,6 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-    }
-    dataBinding {
-        enabled true
     }
     lintOptions {
         abortOnError false
@@ -53,12 +49,12 @@ dependencies {
 
     compile language.kotlin
 
+    compile supportDependencies.multidex
     compile supportDependencies.support
     compile supportDependencies.appcompat
     compile supportDependencies.design
     compile supportDependencies.cardview
     compile supportDependencies.recyclerview
-    compile supportDependencies.multidex
 
     compile ankoDependencies.anko
     compile ankoDependencies.support

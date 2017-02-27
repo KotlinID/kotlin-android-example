@@ -4,12 +4,12 @@ ext {
     ]
 
     supportDependencies = [
+            multidex    : "com.android.support:multidex:${multidexLibraryVersion}",
             support     : "com.android.support:support-v4:${supportLibraryVersion}",
             appcompat   : "com.android.support:appcompat-v7:${supportLibraryVersion}",
             design      : "com.android.support:design:${supportLibraryVersion}",
             cardview    : "com.android.support:cardview-v7:${supportLibraryVersion}",
-            recyclerview: "com.android.support:recyclerview-v7:${supportLibraryVersion}",
-            multidex    : "com.android.support:multidex:${multidexLibraryVersion}"
+            recyclerview: "com.android.support:recyclerview-v7:${supportLibraryVersion}"
     ]
 
     ankoDependencies = [

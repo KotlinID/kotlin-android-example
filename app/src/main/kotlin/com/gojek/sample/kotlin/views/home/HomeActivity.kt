@@ -42,25 +42,7 @@ class HomeActivity : BaseActivity(), HomeView {
     }
 
     private fun setAdapter() {
-        val contacts: List<String> = listOf(
-                "Budi",
-                "Oktaviyan",
-                "Suryanto",
-                "Indah",
-                "Kurniawati",
-                "Ivan",
-                "Oktaviyan",
-                "Suryanto",
-                "Deny",
-                "Prasetyo",
-                "Amira",
-                "Ratu",
-                "Meidina",
-                "Sevina",
-                "Mutiara",
-                "Savitri"
-        )
-
+        val contacts: List<String> = listOf("Budi", "Oktaviyan", "Suryanto")
         val recyclerView = find<RecyclerView>(R.id.rv_content)
         val layoutManager = LinearLayoutManager(this)
         val adapter = HomeAdapter(contacts)
