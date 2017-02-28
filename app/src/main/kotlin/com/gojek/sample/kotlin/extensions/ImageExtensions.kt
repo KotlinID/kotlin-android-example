@@ -9,11 +9,17 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.GlideDrawable
 import com.bumptech.glide.request.animation.GlideAnimation
 import com.bumptech.glide.request.target.SimpleTarget
+import com.bumptech.glide.request.target.Target
 import de.hdodenhof.circleimageview.CircleImageView
 
 internal fun loadImage(context: Context, url: String?, imageView: ImageView) {
     setMemoryCategory(context)
-    Glide.with(context).load(url).centerCrop().diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imageView)
+    Glide.with(context)
+         .load(url)
+         .centerCrop()
+         .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+         .override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
+         .into(imageView)
 }
 
 internal fun loadImageCircle(context: Context, url: String, resourceId: Int, circleImageView: CircleImageView) {
