@@ -11,4 +11,6 @@ interface HomeView : View {
     fun onLoadContacts()
 
     fun onShowContacts(contacts: List<Contacts>)
+
+    fun onNavigateDetailScreen()
 }

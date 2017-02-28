@@ -10,7 +10,7 @@ import com.bumptech.glide.request.animation.GlideAnimation
 import com.bumptech.glide.request.target.SimpleTarget
 import de.hdodenhof.circleimageview.CircleImageView
 
-fun loadImage(context: Context, url: String, resourceId: Int, circleImageView: CircleImageView) {
+internal fun loadImage(context: Context, url: String, resourceId: Int, circleImageView: CircleImageView) {
     setMemoryCategory(context)
     Glide.with(context)
          .load(url)
@@ -33,6 +33,6 @@ fun loadImage(context: Context, url: String, resourceId: Int, circleImageView: C
          })
 }
 
-fun setMemoryCategory(context: Context) {
+internal fun setMemoryCategory(context: Context) {
     Glide.get(context).setMemoryCategory(MemoryCategory.HIGH);
 }

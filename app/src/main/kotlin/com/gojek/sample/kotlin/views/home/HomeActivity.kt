@@ -13,8 +13,10 @@ import com.gojek.sample.kotlin.internal.injectors.component.ActivityComponent
 import com.gojek.sample.kotlin.internal.injectors.component.DaggerActivityComponent
 import com.gojek.sample.kotlin.internal.injectors.module.ActivityModule
 import com.gojek.sample.kotlin.views.base.BaseActivity
+import com.gojek.sample.kotlin.views.detail.DetailActivity
 import org.jetbrains.anko.find
 import org.jetbrains.anko.setContentView
+import org.jetbrains.anko.startActivity
 import javax.inject.Inject
 
 class HomeActivity : BaseActivity(), HomeView {
@@ -71,11 +73,15 @@ class HomeActivity : BaseActivity(), HomeView {
     override fun onShowContacts(contacts: List<Contacts>) {
         val recyclerView = find<RecyclerView>(R.id.rv_content)
         val layoutManager = LinearLayoutManager(this)
-        val adapter = HomeAdapter(this, contacts)
+        val adapter = HomeAdapter(this, contacts, presenter)
 
         recyclerView.layoutManager = layoutManager
         recyclerView.smoothScrollToPosition(recyclerView.bottom)
         recyclerView.adapter = adapter
+    }
+
+    override fun onNavigateDetailScreen() {
+        startActivity<DetailActivity>()
     }
 
     private fun setToolbar() {

@@ -58,5 +58,9 @@ class HomePresenter @Inject constructor(private val api: Api) : Presenter<HomeVi
         view?.onShowContacts(contacts)
     }
 
+    fun navigateDetailScreen() {
+        view?.onNavigateDetailScreen()
+    }
+
     private fun checkContacts(): Int = realmManagers.getAllContacts().size
 }

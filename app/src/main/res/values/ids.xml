@@ -4,5 +4,6 @@
     <item name="abl_home" type="id" />
     <item name="tb_home" type="id" />
     <item name="pb_home" type="id" />
+    <item name="cv_homeitem" type="id" />
     <item name="tv_homeitem_name" type="id" />
 </resources>

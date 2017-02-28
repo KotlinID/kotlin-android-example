@@ -16,6 +16,7 @@ class HomeItemUI : AnkoComponent<ViewGroup> {
 
         frameLayout {
             cardView {
+                id = R.id.cv_homeitem
                 cardBackgroundColor = AppCompatResources.getColorStateList(ctx, R.color.colorPrimary)
                 radius = dip(4).toFloat()
                 cardElevation = dip(2).toFloat()
