@@ -37,7 +37,7 @@ class HomeAdapter constructor(private val context: Context, private val contacts
 
                 // Set image and text
                 loadImage(context, profilePic, R.mipmap.ic_launcher, photo)
-                fullName.text = firstName.plus("").plus(lastName)
+                fullName.text = firstName.plus(" ").plus(lastName)
 
                 // Add content listener
                 content.setOnClickListener { view -> presenter.navigateDetailScreen() }

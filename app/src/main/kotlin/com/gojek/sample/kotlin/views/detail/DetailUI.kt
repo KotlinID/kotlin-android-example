@@ -44,7 +44,9 @@ class DetailUI : AnkoComponent<DetailActivity> {
             }
 
             scrollView {
+                id = R.id.sv_detail
                 isFillViewport = true
+                visibility = View.GONE
 
                 verticalLayout {
                     imageView {
