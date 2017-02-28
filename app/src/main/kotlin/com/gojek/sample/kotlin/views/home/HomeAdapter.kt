@@ -5,10 +5,8 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.MemoryCategory
-import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.gojek.sample.kotlin.R
+import com.gojek.sample.kotlin.extensions.loadImage
 import com.gojek.sample.kotlin.internal.data.local.model.Contacts
 import de.hdodenhof.circleimageview.CircleImageView
 import org.jetbrains.anko.AnkoContext
@@ -35,17 +33,8 @@ class HomeAdapter constructor(val context: Context, val contacts: List<Contacts>
                 val firstName = contact.firstName
                 val lastName = contact.lastName
 
-                // Set image
-                Glide.get(context).setMemoryCategory(MemoryCategory.HIGH)
-                Glide.with(context)
-                     .load(profilePic)
-                     .placeholder(R.mipmap.ic_launcher)
-                     .error(R.mipmap.ic_launcher)
-                     .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                     .dontAnimate()
-                     .into(photo)
-
-                // Set text
+                // Set image and text
+                loadImage(context, profilePic, R.mipmap.ic_launcher, photo)
                 fullName.text = firstName.plus("").plus(lastName)
             }
         }

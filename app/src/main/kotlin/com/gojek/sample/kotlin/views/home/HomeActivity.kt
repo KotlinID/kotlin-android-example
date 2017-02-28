@@ -34,6 +34,11 @@ class HomeActivity : BaseActivity(), HomeView {
         onLoadContacts()
     }
 
+    override fun onDestroy() {
+        onDetach()
+        super.onDestroy()
+    }
+
     override fun inject() {
         component = DaggerActivityComponent.builder().applicationComponent(App.component)
                                                      .activityModule(ActivityModule(this))
