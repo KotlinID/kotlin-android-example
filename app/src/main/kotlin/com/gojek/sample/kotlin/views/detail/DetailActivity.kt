@@ -4,8 +4,11 @@ import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
+import android.view.View
+import android.widget.ProgressBar
 import com.gojek.sample.kotlin.App
 import com.gojek.sample.kotlin.R
+import com.gojek.sample.kotlin.internal.data.local.model.Contact
 import com.gojek.sample.kotlin.internal.injectors.component.ActivityComponent
 import com.gojek.sample.kotlin.internal.injectors.component.DaggerActivityComponent
 import com.gojek.sample.kotlin.internal.injectors.module.ActivityModule
@@ -18,6 +21,7 @@ class DetailActivity : BaseActivity(), DetailView {
 
     companion object {
         lateinit var component: ActivityComponent
+        lateinit var progressBar: ProgressBar
     }
 
     @Inject
@@ -56,6 +60,22 @@ class DetailActivity : BaseActivity(), DetailView {
 
     override fun onDetach() {
         presenter.onDetach()
+    }
+
+    override fun onShowProgressBar() {
+        progressBar = find<ProgressBar>(R.id.pb_detail)
+        progressBar.visibility = View.VISIBLE
+    }
+
+    override fun onHideProgressBar() {
+        progressBar.visibility = View.GONE
+    }
+
+    override fun onLoadContact(id: Int) {
+        presenter.loadContact(id)
+    }
+
+    override fun onShowContact(contact: Contact) {
     }
 
     private fun setToolbar() {
