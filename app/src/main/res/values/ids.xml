@@ -10,4 +10,9 @@
     <item name="abl_detail" type="id" />
     <item name="tb_detail" type="id" />
     <item name="pb_detail" type="id" />
+    <item name="iv_detail_photo" type="id" />
+    <item name="tv_detail_firstname" type="id" />
+    <item name="tv_detail_lastname" type="id" />
+    <item name="tv_detail_email" type="id" />
+    <item name="tv_detail_phonenumber" type="id" />
 </resources>
