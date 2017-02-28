@@ -5,9 +5,13 @@ import android.support.v4.content.ContextCompat
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
 import android.view.View
+import android.widget.ImageView
 import android.widget.ProgressBar
+import android.widget.ScrollView
+import android.widget.TextView
 import com.gojek.sample.kotlin.App
 import com.gojek.sample.kotlin.R
+import com.gojek.sample.kotlin.extensions.loadImage
 import com.gojek.sample.kotlin.internal.data.local.model.Contact
 import com.gojek.sample.kotlin.internal.injectors.component.ActivityComponent
 import com.gojek.sample.kotlin.internal.injectors.component.DaggerActivityComponent
@@ -31,6 +35,7 @@ class DetailActivity : BaseActivity(), DetailView {
         DetailUI().setContentView(this)
         inject()
         onAttach()
+        onLoadContact()
     }
 
     override fun onDestroy() {
@@ -71,11 +76,25 @@ class DetailActivity : BaseActivity(), DetailView {
         progressBar.visibility = View.GONE
     }
 
-    override fun onLoadContact(id: Int) {
+    override fun onLoadContact() {
+        val id: Int = intent.getIntExtra("id", -1)
         presenter.loadContact(id)
     }
 
-    override fun onShowContact(contact: Contact) {
+    override fun onShowContact(contact: Contact?) {
+        val photo = find<ImageView>(R.id.iv_detail_photo)
+        val firstName = find<TextView>(R.id.tv_detail_firstname)
+        val lastName = find<TextView>(R.id.tv_detail_lastname)
+        val email = find<TextView>(R.id.tv_detail_email)
+        val phoneNumber = find<TextView>(R.id.tv_detail_phonenumber)
+        val scrollView = find<ScrollView>(R.id.sv_detail)
+
+        loadImage(this, contact?.profilePic, photo)
+        firstName.text = contact?.firstName
+        lastName.text = contact?.lastName
+        email.text = contact?.email
+        phoneNumber.text = contact?.phoneNumber
+        scrollView.visibility = View.VISIBLE
     }
 
     private fun setToolbar() {

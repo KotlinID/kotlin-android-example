@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.gojek.sample.kotlin.R
-import com.gojek.sample.kotlin.extensions.loadImage
+import com.gojek.sample.kotlin.extensions.loadImageCircle
 import com.gojek.sample.kotlin.internal.data.local.model.Contacts
 import de.hdodenhof.circleimageview.CircleImageView
 import org.jetbrains.anko.AnkoContext
@@ -31,16 +31,17 @@ class HomeAdapter constructor(private val context: Context, private val contacts
                 val content = itemView.find<CardView>(R.id.cv_homeitem)
                 val photo = itemView.find<CircleImageView>(R.id.civ_content)
                 val fullName = itemView.find<TextView>(R.id.tv_homeitem_name)
+                val id = contact.id
                 val profilePic = contact.profilePic
                 val firstName = contact.firstName
                 val lastName = contact.lastName
 
                 // Set image and text
-                loadImage(context, profilePic, R.mipmap.ic_launcher, photo)
+                loadImageCircle(context, profilePic, R.mipmap.ic_launcher, photo)
                 fullName.text = firstName.plus(" ").plus(lastName)
 
                 // Add content listener
-                content.setOnClickListener { view -> presenter.navigateDetailScreen() }
+                content.setOnClickListener { view -> presenter.navigateDetailScreen(id) }
             }
         }
     }

@@ -11,18 +11,18 @@ class ContactRealm : RealmObject() {
     @PrimaryKey
     var id: Int? = 0
 
-    lateinit var firstName: String
-    lateinit var lastName: String
-    lateinit var email: String
-    lateinit var phoneNumber: String
-    lateinit var profilePic: String
+    var firstName: String? = ""
+    var lastName: String? = ""
+    var email: String? = ""
+    var phoneNumber: String? = ""
+    var profilePic: String? = ""
 
-    internal fun fill(contact: Contact) {
-        id = contact.id
-        firstName = contact.firstName
-        lastName = contact.lastName
-        email = contact.email
-        phoneNumber = contact.phoneNumber
-        profilePic = contact.profilePic
+    internal fun fill(contact: Contact?) {
+        id = contact?.id
+        firstName = contact?.firstName
+        lastName = contact?.lastName
+        email = contact?.email
+        phoneNumber = contact?.phoneNumber
+        profilePic = contact?.profilePic
     }
 }

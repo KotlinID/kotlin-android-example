@@ -2,6 +2,7 @@ package com.gojek.sample.kotlin.views.detail
 
 import com.gojek.sample.kotlin.internal.data.local.RealmManagers
 import com.gojek.sample.kotlin.internal.data.local.model.Contact
+import com.gojek.sample.kotlin.internal.data.local.realm.ContactRealm
 import com.gojek.sample.kotlin.internal.data.remote.Api
 import com.gojek.sample.kotlin.internal.data.remote.response.ContactResponse
 import com.gojek.sample.kotlin.views.base.Presenter
@@ -24,8 +25,22 @@ class DetailPresenter @Inject constructor(private val api: Api) : Presenter<Deta
     }
 
     fun loadContact(id: Int) {
-        view?.onShowProgressBar()
-        api.getContact(id).observeOn(AndroidSchedulers.mainThread()).subscribeOn(Schedulers.io()).subscribe({ setContactResponse(it) }, Throwable::printStackTrace)
+        if (checkContact(id) != id) {
+            view?.onShowProgressBar()
+            api.getContact(id).observeOn(AndroidSchedulers.mainThread()).subscribeOn(Schedulers.io()).subscribe({ setContactResponse(it) }, Throwable::printStackTrace)
+        } else {
+            val contactRealm: ContactRealm? = realmManagers.getContactById(id)
+            val contact: Contact = Contact(
+                    contactRealm?.id,
+                    contactRealm?.firstName,
+                    contactRealm?.lastName,
+                    contactRealm?.email,
+                    contactRealm?.phoneNumber,
+                    contactRealm?.profilePic
+            )
+
+            view?.onShowContact(contact)
+        }
     }
 
     fun setContactResponse(response: ContactResponse) {
@@ -42,4 +57,6 @@ class DetailPresenter @Inject constructor(private val api: Api) : Presenter<Deta
         view?.onHideProgressBar()
         view?.onShowContact(contact)
     }
+
+    private fun checkContact(id: Int?): Int? = realmManagers.getContactById(id)?.id
 }

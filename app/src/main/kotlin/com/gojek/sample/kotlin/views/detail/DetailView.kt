@@ -8,7 +8,7 @@ interface DetailView : View {
 
     fun onHideProgressBar()
 
-    fun onLoadContact(id: Int)
+    fun onLoadContact()
 
-    fun onShowContact(contact: Contact)
+    fun onShowContact(contact: Contact?)
 }

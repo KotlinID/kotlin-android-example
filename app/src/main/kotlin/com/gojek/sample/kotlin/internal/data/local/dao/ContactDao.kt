@@ -38,4 +38,18 @@ class ContactDao : Dao<ContactRealm> {
         val realm: Realm = Realm.getDefaultInstance()
         realm.executeTransactionAsync({ realm -> realm.delete(membersOf<ContactRealm>()) }, { realm.close() }) { realm.close() }
     }
+
+    fun findById(id: Int?): ContactRealm? {
+        val realm: Realm = Realm.getDefaultInstance()
+        var data: ContactRealm? = realm.where<ContactRealm>(membersOf<ContactRealm>()).equalTo("id", id).findFirst()
+
+        if (null != data) {
+            data = realm.copyFromRealm(data)
+        } else {
+            data = ContactRealm()
+        }
+
+        realm.close()
+        return data
+    }
 }

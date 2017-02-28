@@ -15,8 +15,8 @@ import com.gojek.sample.kotlin.internal.injectors.module.ActivityModule
 import com.gojek.sample.kotlin.views.base.BaseActivity
 import com.gojek.sample.kotlin.views.detail.DetailActivity
 import org.jetbrains.anko.find
+import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.setContentView
-import org.jetbrains.anko.startActivity
 import javax.inject.Inject
 
 class HomeActivity : BaseActivity(), HomeView {
@@ -80,8 +80,8 @@ class HomeActivity : BaseActivity(), HomeView {
         recyclerView.adapter = adapter
     }
 
-    override fun onNavigateDetailScreen() {
-        startActivity<DetailActivity>()
+    override fun onNavigateDetailScreen(id: Int?) {
+        startActivity(intentFor<DetailActivity>("id" to id))
     }
 
     private fun setToolbar() {

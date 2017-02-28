@@ -16,15 +16,7 @@ class RealmManagers {
         dao.saveOrUpdate(data)
     }
 
-    internal fun getAllContacts(): List<ContactsRealm> {
-        val dao: ContactsDao = ContactsDao()
-        return dao.findAll()
-    }
-
-    internal fun getContacts(): ContactsRealm {
-        val dao: ContactsDao = ContactsDao()
-        return dao.findOne()
-    }
+    internal fun getAllContacts(): List<ContactsRealm> = ContactsDao().findAll()
 
     internal fun deleteContacts() {
         val dao: ContactsDao = ContactsDao()
@@ -38,15 +30,7 @@ class RealmManagers {
         dao.saveOrUpdate(data)
     }
 
-    internal fun getAllContact(): List<ContactRealm> {
-        val dao: ContactDao = ContactDao()
-        return dao.findAll()
-    }
-
-    internal fun getContact(): ContactRealm {
-        val dao: ContactDao = ContactDao()
-        return dao.findOne()
-    }
+    internal fun getContactById(id: Int?): ContactRealm? = ContactDao().findById(id)
 
     internal fun deleteContact() {
         val dao: ContactDao = ContactDao()

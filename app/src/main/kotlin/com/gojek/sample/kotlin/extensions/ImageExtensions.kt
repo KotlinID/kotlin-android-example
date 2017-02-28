@@ -2,6 +2,7 @@ package com.gojek.sample.kotlin.extensions
 
 import android.content.Context
 import android.graphics.drawable.Drawable
+import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.MemoryCategory
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -10,7 +11,12 @@ import com.bumptech.glide.request.animation.GlideAnimation
 import com.bumptech.glide.request.target.SimpleTarget
 import de.hdodenhof.circleimageview.CircleImageView
 
-internal fun loadImage(context: Context, url: String, resourceId: Int, circleImageView: CircleImageView) {
+internal fun loadImage(context: Context, url: String?, imageView: ImageView) {
+    setMemoryCategory(context)
+    Glide.with(context).load(url).centerCrop().diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imageView)
+}
+
+internal fun loadImageCircle(context: Context, url: String, resourceId: Int, circleImageView: CircleImageView) {
     setMemoryCategory(context)
     Glide.with(context)
          .load(url)
