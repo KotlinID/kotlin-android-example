@@ -6,6 +6,5 @@
                                               android:layout_height="64dp"
                                               android:layout_alignParentStart="true"
                                               android:padding="8dp"
-                                              android:src="@mipmap/ic_launcher"
                                               app:civ_border_color="@android:color/transparent"
                                               app:civ_border_width="0dip" />

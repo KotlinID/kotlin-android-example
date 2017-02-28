@@ -2,6 +2,7 @@ package com.gojek.sample.kotlin.views.home
 
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
+import android.view.View
 import com.gojek.sample.kotlin.R
 import org.jetbrains.anko.*
 import org.jetbrains.anko.appcompat.v7.toolbar
@@ -32,6 +33,7 @@ class HomeUI : AnkoComponent<HomeActivity> {
 
             progressBar {
                 id = R.id.pb_home
+                visibility = View.GONE
             }.lparams {
                 centerInParent()
                 width = wrapContent

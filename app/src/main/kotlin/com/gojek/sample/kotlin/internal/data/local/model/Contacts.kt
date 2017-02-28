@@ -5,7 +5,7 @@ import org.parceler.ParcelConstructor
 
 @Parcel(Parcel.Serialization.BEAN)
 data class Contacts @ParcelConstructor constructor(
-        val id: Int,
+        val id: Int?,
         val firstName: String,
         val lastName: String,
         val profilePic: String
