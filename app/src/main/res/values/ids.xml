@@ -6,4 +6,8 @@
     <item name="pb_home" type="id" />
     <item name="cv_homeitem" type="id" />
     <item name="tv_homeitem_name" type="id" />
+    <item name="content_detail" type="id" />
+    <item name="abl_detail" type="id" />
+    <item name="tb_detail" type="id" />
+    <item name="pb_detail" type="id" />
 </resources>

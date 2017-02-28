@@ -1,5 +1,6 @@
 package com.gojek.sample.kotlin.views.home
 
+import android.annotation.SuppressLint
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
 import android.view.View
@@ -10,6 +11,7 @@ import org.jetbrains.anko.design.appBarLayout
 
 class HomeUI : AnkoComponent<HomeActivity> {
 
+    @SuppressLint("NewApi")
     override fun createView(ui: AnkoContext<HomeActivity>) = with(ui) {
         relativeLayout {
             id = R.id.content_home
@@ -18,6 +20,7 @@ class HomeUI : AnkoComponent<HomeActivity> {
             appBarLayout {
                 id = R.id.abl_home
                 backgroundColor = ContextCompat.getColor(ctx, R.color.colorAccent)
+                elevation = dip(4).toFloat()
 
                 toolbar {
                     id = R.id.tb_home
