@@ -76,6 +76,7 @@ dependencies {
     compile libraries.parceler
     kapt libraries.parcelerCompiler
     compile libraries.glide
+    compile libraries.glideOkHttp
     compile libraries.jodatime
     compile libraries.circleimageview
     compile libraries.zeloryCompressor

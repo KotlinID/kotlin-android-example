@@ -13,6 +13,10 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
 
+        <meta-data
+            android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule"
+            android:value="GlideModule" />
+
         <activity
             android:name="com.gojek.sample.kotlin.views.home.HomeActivity"
             android:screenOrientation="portrait">

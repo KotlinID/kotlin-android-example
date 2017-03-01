@@ -40,6 +40,6 @@ class DetailPresenterTest {
     fun testShouldLoadContact() {
         val id: Int = 1
         presenter.loadContact(id)
-        verify<DetailView>(mockView).onLoadContact(id)
+        verify<DetailView>(mockView).onLoadContact()
     }
 }

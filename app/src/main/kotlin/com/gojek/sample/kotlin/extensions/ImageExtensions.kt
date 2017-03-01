@@ -18,7 +18,7 @@ internal fun loadImage(context: Context, url: String?, imageView: ImageView) {
          .load(url)
          .centerCrop()
          .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-         .override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
+         .override(imageView.maxWidth, Target.SIZE_ORIGINAL)
          .into(imageView)
 }
 
