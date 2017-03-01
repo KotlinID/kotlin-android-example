@@ -1,6 +1,7 @@
 package com.gojek.sample.kotlin.views.home
 
 import android.os.Bundle
+import android.support.design.widget.FloatingActionButton
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
@@ -13,10 +14,12 @@ import com.gojek.sample.kotlin.internal.injectors.component.ActivityComponent
 import com.gojek.sample.kotlin.internal.injectors.component.DaggerActivityComponent
 import com.gojek.sample.kotlin.internal.injectors.module.ActivityModule
 import com.gojek.sample.kotlin.views.base.BaseActivity
+import com.gojek.sample.kotlin.views.create.CreateActivity
 import com.gojek.sample.kotlin.views.detail.DetailActivity
 import org.jetbrains.anko.find
 import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.setContentView
+import org.jetbrains.anko.startActivity
 import javax.inject.Inject
 
 class HomeActivity : BaseActivity(), HomeView {
@@ -51,6 +54,7 @@ class HomeActivity : BaseActivity(), HomeView {
     override fun onAttach() {
         presenter.onAttach(this)
         setToolbar()
+        setFloatingActionButton()
     }
 
     override fun onDetach() {
@@ -90,5 +94,10 @@ class HomeActivity : BaseActivity(), HomeView {
         toolbar.setPadding(0, getStatusBarHeight(), 0, 0)
 
         setSupportActionBar(toolbar)
+    }
+
+    private fun setFloatingActionButton() {
+        val floatingActionButton = find<FloatingActionButton>(R.id.fab_home_add)
+        floatingActionButton.setOnClickListener { view -> startActivity<CreateActivity>() }
     }
 }

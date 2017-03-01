@@ -4,6 +4,7 @@
     <item name="abl_home" type="id" />
     <item name="tb_home" type="id" />
     <item name="pb_home" type="id" />
+    <item name="fab_home_add" type="id" />
     <item name="cv_homeitem" type="id" />
     <item name="tv_homeitem_name" type="id" />
     <item name="content_detail" type="id" />
@@ -16,4 +17,7 @@
     <item name="tv_detail_lastname" type="id" />
     <item name="tv_detail_email" type="id" />
     <item name="tv_detail_phonenumber" type="id" />
+    <item name="content_create" type="id" />
+    <item name="abl_create" type="id" />
+    <item name="tb_create" type="id" />
 </resources>

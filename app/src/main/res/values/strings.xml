@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">Phonebook</string>
     <string name="title_detail">Detail Contact</string>
+    <string name="title_create">Create Contact</string>
     <string name="text_firstname">Firstname</string>
     <string name="text_lastname">Lastname</string>
     <string name="text_email">Email</string>
