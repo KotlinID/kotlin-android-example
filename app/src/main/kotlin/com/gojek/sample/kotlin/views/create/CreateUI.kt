@@ -2,6 +2,7 @@ package com.gojek.sample.kotlin.views.create
 
 import android.annotation.SuppressLint
 import android.support.v4.content.ContextCompat
+import android.widget.ImageView
 import com.gojek.sample.kotlin.R
 import org.jetbrains.anko.*
 import org.jetbrains.anko.appcompat.v7.toolbar
@@ -30,6 +31,24 @@ class CreateUI : AnkoComponent<CreateActivity> {
             }.lparams {
                 width = matchParent
                 height = wrapContent
+            }
+
+            scrollView {
+                id = R.id.sv_create
+                isFillViewport = true
+
+                verticalLayout {
+                    imageView {
+                        id = R.id.iv_create_photo
+                        adjustViewBounds = true
+                        scaleType = ImageView.ScaleType.CENTER_CROP
+                    }.lparams {
+                        width = matchParent
+                        height = dip(200)
+                    }
+                }
+            }.lparams {
+                below(R.id.abl_create)
             }
         }
     }

@@ -20,4 +20,6 @@
     <item name="content_create" type="id" />
     <item name="abl_create" type="id" />
     <item name="tb_create" type="id" />
+    <item name="sv_create" type="id" />
+    <item name="iv_create_photo" type="id" />
 </resources>
