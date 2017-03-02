@@ -9,7 +9,6 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.GlideDrawable
 import com.bumptech.glide.request.animation.GlideAnimation
 import com.bumptech.glide.request.target.SimpleTarget
-import com.bumptech.glide.request.target.Target
 import de.hdodenhof.circleimageview.CircleImageView
 
 internal fun loadImage(context: Context, url: String?, imageView: ImageView) {
@@ -18,7 +17,6 @@ internal fun loadImage(context: Context, url: String?, imageView: ImageView) {
          .load(url)
          .centerCrop()
          .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-         .override(imageView.maxWidth, Target.SIZE_ORIGINAL)
          .into(imageView)
 }
 
@@ -46,5 +44,5 @@ internal fun loadImageCircle(context: Context, url: String, resourceId: Int, cir
 }
 
 internal fun setMemoryCategory(context: Context) {
-    Glide.get(context).setMemoryCategory(MemoryCategory.HIGH);
+    Glide.get(context).setMemoryCategory(MemoryCategory.HIGH)
 }

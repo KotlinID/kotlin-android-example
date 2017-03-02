@@ -53,7 +53,6 @@ class DetailUI : AnkoComponent<DetailActivity> {
                         id = R.id.iv_detail_photo
                         adjustViewBounds = true
                         scaleType = ImageView.ScaleType.CENTER_CROP
-                        maxWidth = dip(400)
                     }.lparams {
                         width = matchParent
                         height = dip(200)
@@ -152,6 +151,8 @@ class DetailUI : AnkoComponent<DetailActivity> {
                 }
             }.lparams {
                 below(R.id.abl_detail)
+                width = matchParent
+                height = matchParent
             }
         }
     }

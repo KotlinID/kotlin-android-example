@@ -49,6 +49,9 @@ class CreateUI : AnkoComponent<CreateActivity> {
                 }
             }.lparams {
                 below(R.id.abl_create)
+            }.lparams {
+                width = matchParent
+                height = matchParent
             }
         }
     }
