@@ -22,4 +22,8 @@
     <item name="tb_create" type="id" />
     <item name="sv_create" type="id" />
     <item name="iv_create_photo" type="id" />
+    <item name="et_create_firstname" type="id" />
+    <item name="et_create_lastname" type="id" />
+    <item name="et_create_email" type="id" />
+    <item name="et_create_phonenumber" type="id" />
 </resources>

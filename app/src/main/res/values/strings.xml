@@ -7,4 +7,8 @@
     <string name="text_lastname">Lastname</string>
     <string name="text_email">Email</string>
     <string name="text_phonenumber">Phone Number</string>
+    <string name="hint_firstname">Input your firstname</string>
+    <string name="hint_lastname">Input your lastname</string>
+    <string name="hint_email">Input your email</string>
+    <string name="hint_phonenumber">Input your phone number</string>
 </resources>
