@@ -13,7 +13,7 @@ class RxSchedulersOverrideRule : TestRule {
             @Throws(Throwable::class)
             override fun evaluate() {
                 RxAndroidPlugins.reset()
-                RxAndroidPlugins.setInitMainThreadSchedulerHandler({ t -> Schedulers.io() })
+                RxAndroidPlugins.setInitMainThreadSchedulerHandler({ Schedulers.io() })
                 RxAndroidPlugins.reset()
             }
         }

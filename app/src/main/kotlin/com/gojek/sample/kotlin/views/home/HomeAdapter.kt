@@ -41,7 +41,7 @@ class HomeAdapter constructor(private val context: Context, private val contacts
                 fullName.text = firstName.plus(" ").plus(lastName)
 
                 // Add content listener
-                content.setOnClickListener { view -> presenter.navigateDetailScreen(id) }
+                content.setOnClickListener { presenter.navigateDetailScreen(id) }
             }
         }
     }

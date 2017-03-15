@@ -98,6 +98,6 @@ class HomeActivity : BaseActivity(), HomeView {
 
     private fun setFloatingActionButton() {
         val floatingActionButton = find<FloatingActionButton>(R.id.fab_home_add)
-        floatingActionButton.setOnClickListener { view -> startActivity<CreateActivity>() }
+        floatingActionButton.setOnClickListener { startActivity<CreateActivity>() }
     }
 }
