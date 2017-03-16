@@ -33,6 +33,6 @@
             android:name="com.gojek.sample.kotlin.views.create.CreateActivity"
             android:label="@string/title_create"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan|stateHidden" />
+            android:windowSoftInputMode="stateHidden" />
     </application>
 </manifest>

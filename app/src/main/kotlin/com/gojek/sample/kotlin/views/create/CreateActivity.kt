@@ -70,7 +70,7 @@ class CreateActivity : BaseActivity(), CreateView {
     private fun setToolbar() {
         val toolbar = find<Toolbar>(R.id.tb_create)
         toolbar.title = title
-        toolbar.navigationIcon = ContextCompat.getDrawable(this, R.mipmap.ic_arrow_back)
+        toolbar.navigationIcon = ContextCompat.getDrawable(this, R.drawable.bg_arrow_back)
         toolbar.setPadding(0, getStatusBarHeight(), 0, 0)
 
         setSupportActionBar(toolbar)

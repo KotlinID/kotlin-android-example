@@ -54,7 +54,7 @@ class HomeUI : AnkoComponent<HomeActivity> {
             floatingActionButton {
                 id = R.id.fab_home_add
                 scaleType = ImageView.ScaleType.CENTER
-                imageResource = R.mipmap.ic_add
+                imageResource = R.drawable.bg_add
                 backgroundTintList = AppCompatResources.getColorStateList(ctx, R.color.colorAccent)
                 elevation = dip(4).toFloat()
                 size = FloatingActionButton.SIZE_NORMAL
