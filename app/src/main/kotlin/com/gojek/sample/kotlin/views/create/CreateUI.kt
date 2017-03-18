@@ -147,7 +147,7 @@ class CreateUI : AnkoComponent<CreateActivity> {
                         id = R.id.et_create_phonenumber
                         textColor = ContextCompat.getColor(ctx, R.color.colorAccent)
                         textSize = 14f
-                        hint = ctx.resources.getString(R.string.hint_email)
+                        hint = ctx.resources.getString(R.string.hint_phonenumber)
                         inputType = InputType.TYPE_CLASS_PHONE
                     }.lparams {
                         width = matchParent
