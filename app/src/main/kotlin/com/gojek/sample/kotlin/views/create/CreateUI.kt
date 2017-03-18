@@ -37,7 +37,6 @@ class CreateUI : AnkoComponent<CreateActivity> {
             scrollView {
                 id = R.id.sv_create
                 isFillViewport = true
-                isScrollContainer = true
 
                 verticalLayout {
                     isFocusable = true
@@ -60,7 +59,10 @@ class CreateUI : AnkoComponent<CreateActivity> {
                     }.lparams {
                         width = matchParent
                         height = wrapContent
-                        margin = dip(8)
+                        topMargin = dip(8)
+                        leftMargin = dip(8)
+                        rightMargin = dip(8)
+                        bottomMargin = dip(4)
                     }
 
                     editText {
@@ -68,10 +70,10 @@ class CreateUI : AnkoComponent<CreateActivity> {
                         textColor = ContextCompat.getColor(ctx, R.color.colorAccent)
                         textSize = 14f
                         hint = ctx.resources.getString(R.string.hint_firstname)
+                        inputType = InputType.TYPE_CLASS_TEXT
                     }.lparams {
                         width = matchParent
                         height = wrapContent
-                        topMargin = dip(4)
                         leftMargin = dip(8)
                         rightMargin = dip(8)
                     }
@@ -83,7 +85,10 @@ class CreateUI : AnkoComponent<CreateActivity> {
                     }.lparams {
                         width = matchParent
                         height = wrapContent
-                        margin = dip(8)
+                        topMargin = dip(8)
+                        leftMargin = dip(8)
+                        rightMargin = dip(8)
+                        bottomMargin = dip(4)
                     }
 
                     editText {
@@ -91,10 +96,10 @@ class CreateUI : AnkoComponent<CreateActivity> {
                         textColor = ContextCompat.getColor(ctx, R.color.colorAccent)
                         textSize = 14f
                         hint = ctx.resources.getString(R.string.hint_lastname)
+                        inputType = InputType.TYPE_CLASS_TEXT
                     }.lparams {
                         width = matchParent
                         height = wrapContent
-                        topMargin = dip(4)
                         leftMargin = dip(8)
                         rightMargin = dip(8)
                     }
@@ -106,7 +111,10 @@ class CreateUI : AnkoComponent<CreateActivity> {
                     }.lparams {
                         width = matchParent
                         height = wrapContent
-                        margin = dip(8)
+                        topMargin = dip(8)
+                        leftMargin = dip(8)
+                        rightMargin = dip(8)
+                        bottomMargin = dip(4)
                     }
 
                     editText {
@@ -118,7 +126,6 @@ class CreateUI : AnkoComponent<CreateActivity> {
                     }.lparams {
                         width = matchParent
                         height = wrapContent
-                        topMargin = dip(4)
                         leftMargin = dip(8)
                         rightMargin = dip(8)
                     }
@@ -130,7 +137,10 @@ class CreateUI : AnkoComponent<CreateActivity> {
                     }.lparams {
                         width = matchParent
                         height = wrapContent
-                        margin = dip(8)
+                        topMargin = dip(8)
+                        leftMargin = dip(8)
+                        rightMargin = dip(8)
+                        bottomMargin = dip(4)
                     }
 
                     editText {
@@ -138,18 +148,19 @@ class CreateUI : AnkoComponent<CreateActivity> {
                         textColor = ContextCompat.getColor(ctx, R.color.colorAccent)
                         textSize = 14f
                         hint = ctx.resources.getString(R.string.hint_email)
-                        inputType = InputType.TYPE_TEXT_VARIATION_PHONETIC
+                        inputType = InputType.TYPE_CLASS_PHONE
                     }.lparams {
                         width = matchParent
                         height = wrapContent
-                        topMargin = dip(4)
                         leftMargin = dip(8)
                         rightMargin = dip(8)
                     }
+                }.lparams {
+                    width = matchParent
+                    height = wrapContent
                 }
             }.lparams {
                 below(R.id.abl_create)
-            }.lparams {
                 width = matchParent
                 height = matchParent
             }
